@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Flight.Models.Flightss>
+
+
+
+
+<div class="content">
+
+
+    <!-- Table Start -->
+    <div class="container-fluid pt-4 px-4 ml-5">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Table Without Border</h6>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col">Flight Id</th>
+                                <th scope="col">Flight Name</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var value in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@value.FId</th>
+                                    <th scope="row">@value.FName</th>
+                                    <th scope="col"><a asp-route-Id="@value.FId" asp-action="flight_delete" asp-controller="Home">Delete</a></th>
+                                    <th scope="col"><a asp-route-Id="@value.FId" asp-action="flight_update" asp-controller="Home">Update</a></th>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Table End -->
+<!-- Footer Start -->

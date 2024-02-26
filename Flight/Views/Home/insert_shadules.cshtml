@@ -1,0 +1,110 @@
+﻿@*...............00000000000
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Flight.Models.Schedule
+
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4 m-auto d-flex align-content-center justify-content-center">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Add Admin</h6>
+                <form asp-action="insert_shadulespro">
+                    <div class="mb-3">
+                        <select asp-for="FlightId" asp-items="ViewBag.Flight">
+                            <option>Select Flight</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <select asp-for="RoutessId" asp-items="ViewBag.Route">
+                            <option>Select Routess</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Departual</label>
+                        <input type="datetime-local" asp-for="Departual" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Arraval</label>
+                        <input type="datetime-local" asp-for="Arraval" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary m-auto">Submit</button>
+                </form>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<!-- Form End -->
+
+
+
+<div class="content">
+
+
+    <!-- Table Start -->
+    <div class="container-fluid pt-4 px-4 ml-5 mt-5">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-12">
+                <div class="bg-secondary rounded w-100 h-100 p-4">
+                    <h6 class="mb-4">Table Without Border</h6>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Flight Id</th>
+                                <th scope="col">Route Id</th>
+                                <th scope="col">Departual</th>
+                                <th scope="col">Arraval</th>
+
+
+
+                                <th>Delete</th>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var value in ViewBag.sho)
+                            {
+                                <tr>
+
+                                    <td>@value.SId</td>
+                                    <td>@value.FlightId</td>
+                                    <td>@value.RoutessId</td>
+                                    <td>@value.Departual</td>
+                                    <td>@value.Arraval</td>
+
+
+
+                                    <th scope="col"><a asp-route-id="@value.SId" asp-action="sehadules_delete" asp-controller="Home">Delete</a></th>
+
+
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

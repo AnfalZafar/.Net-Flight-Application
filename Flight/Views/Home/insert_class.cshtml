@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Flight.Models.Class
+
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4 m-auto d-flex align-content-center justify-content-center">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Add Class</h6>
+                <form asp-action="insert_classpro">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="text" asp-for="ClassName" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Price</label>
+                        <input type="text" asp-for="Price" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+
+
+
+
+                    <button type="submit" class="btn btn-primary m-auto">Submit</button>
+                </form>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<!-- Form End -->
+
+
+<div class="content">
+
+
+    <!-- Table Start -->
+    <div class="container-fluid pt-4 px-4 ml-5">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Table Without Border</h6>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+
+                                <th>Delete</th>
+                                <th>Update</th>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var value in ViewBag.clas)
+                            {
+                                <tr>
+                                    <th scope="row">@value.ClassId</th>
+                                    <th scope="row">@value.ClassName</th>
+                                    <th scope="row">@value.Price</th>
+
+                                    <th scope="col"><a asp-route-Id="@value.ClassId" asp-action="class_delete" asp-controller="Home">Delete</a></th>
+                                    <th scope="col"><a asp-route-Id="@value.ClassId" asp-action="class_update" asp-controller="Home">Update</a></th>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Table End -->
+<!-- Footer Start -->
+
+
