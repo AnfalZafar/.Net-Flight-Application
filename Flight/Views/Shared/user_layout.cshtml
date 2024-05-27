@@ -1,8 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+
 
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
@@ -12,7 +9,7 @@
 	<!-- Favicon-->
 	<link rel="shortcut icon" href="img/fav.png">
 	<!-- Author Meta -->
-	<meta name="author" content="colorlib">
+	<meta name="author"  content="colorlib">
 	<!-- Meta Description -->
 	<meta name="description" content="">
 	<!-- Meta Keyword -->
@@ -55,28 +52,23 @@
 		<div class="container main-menu">
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
-					<a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+					<a asp-action="Index" asp-controller="User"><img src="~/img/logo.png" alt="" title="" /></a>
 				</div>
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
 						<li><a asp-action="Index" asp-controller="User">Home</a></li>
-						<li><a >About</a></li>
-						<li><a asp-action="Pakages" asp-controller="User">Packages</a></li>
-						<li class="menu-has-children">
-							<a >Routes</a>
-							<ul>
-								<li><a asp-action="routes" asp-controller="User">Isamabad to Karachi</a></li>
-								<li><a asp-action="routes" asp-controller="User">Lahore to Peshawar</a></li>
-							</ul>
-						</li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a asp-action="about" asp-controller="User">About</a></li>
+						<li><a asp-action="packages" asp-controller="User">Pakages</a></li>
+						<li><a asp-action="contact" asp-controller="User">Contact</a></li>
+						<li><a href="contact.html">Quotes Us</a></li>
+
 					</ul>
 				</nav><!-- #nav-menu-container -->
 			</div>
 		</div>
 	</header><!-- #header -->
 
-	<div class="container">
+	<div class="">
 		<main role="main" class="pb-3">
 			@RenderBody()
 		</main>

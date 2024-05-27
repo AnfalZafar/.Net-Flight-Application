@@ -2,6 +2,8 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+	Layout = "user_layout";
+
 }
 <!-- start banner Area -->
 <section class="about-banner relative">
@@ -12,74 +14,13 @@
 				<h1 class="text-white">
 					Tour Packages
 				</h1>
-				<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.html"> Tour Packages</a></p>
+				<p class="text-white link-nav"><a asp-action="Index" asp-controller="User">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.html"> Tour Packages</a></p>
 			</div>
 		</div>
 	</div>
 </section>
 <!-- End banner Area -->
 <!-- Start hot-deal Area -->
-<section class="hot-deal-area section-gap">
-	<div class="container">
-		<div class="row d-flex justify-content-center">
-			<div class="menu-content pb-70 col-lg-8">
-				<div class="title text-center">
-					<h1 class="mb-10">Today’s Hot Deals</h1>
-					<p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day to.</p>
-				</div>
-			</div>
-		</div>
-		<div class="row justify-content-center">
-			<div class="col-lg-10 active-hot-deal-carusel">
-				<div class="single-carusel">
-					<div class="thumb relative">
-						<div class="overlay overlay-bg"></div>
-						<img class="img-fluid" src="img/packages/hot-deal.jpg" alt="">
-					</div>
-					<div class="price-detials">
-						<a href="#" class="price-btn">Starting From <span>$250</span></a>
-					</div>
-					<div class="details">
-						<h4 class="text-white">Ancient Architecture</h4>
-						<p class="text-white">
-							Cairo, Egypt
-						</p>
-					</div>
-				</div>
-				<div class="single-carusel">
-					<div class="thumb relative">
-						<div class="overlay overlay-bg"></div>
-						<img class="img-fluid" src="img/packages/hot-deal.jpg" alt="">
-					</div>
-					<div class="price-detials">
-						<a href="#" class="price-btn">Starting From <span>$250</span></a>
-					</div>
-					<div class="details">
-						<h4 class="text-white">Ancient Architecture</h4>
-						<p class="text-white">
-							Cairo, Egypt
-						</p>
-					</div>
-				</div>
-				<div class="single-carusel">
-					<div class="thumb relative">
-						<div class="overlay overlay-bg"></div>
-						<img class="img-fluid" src="img/packages/hot-deal.jpg" alt="">
-					</div>
-					<div class="price-detials">
-						<a href="#" class="price-btn">Starting From <span>$250</span></a>
-					</div>
-					<div class="details">
-						<h4 class="text-white">Ancient Architecture</h4>
-						<p class="text-white">
-							Cairo, Egypt
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 <!-- End hot-deal Area -->
 <!-- Start destinations Area -->
 <section class="destinations-area section-gap">
@@ -93,216 +34,47 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-4">
-				<div class="single-destinations">
-					<div class="thumb">
-						<img src="img/packages/d1.jpg" alt="">
-					</div>
-					<div class="details">
-						<h4>Holiday Sea beach Blue Ocean</h4>
-						<p>
-							United staes of America
-						</p>
-						<ul class="package-list">
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Duration</span>
-								<span>06 days and 7 nights</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Date</span>
-								<span>18.04.2018</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Airport</span>
-								<span>Changi</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Extras</span>
-								<span>All Inclusive</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Price per person</span>
-								<a href="#" class="price-btn">$250</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="single-destinations">
-					<div class="thumb">
-						<img src="img/packages/d2.jpg" alt="">
-					</div>
-					<div class="details">
-						<h4>Holiday Sea beach Blue Ocean</h4>
-						<p>
-							United staes of America
-						</p>
-						<ul class="package-list">
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Duration</span>
-								<span>06 days and 7 nights</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Date</span>
-								<span>18.04.2018</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Airport</span>
-								<span>Changi</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Extras</span>
-								<span>All Inclusive</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Price per person</span>
-								<a href="#" class="price-btn">$250</a>
-							</li>
-						</ul>
+			@foreach (var value in ViewBag.schedule)
+			{
+				<div class="col-lg-4">
+					<div class="single-destinations">
+						<div class="thumb">
+							<img src="~/img/packages/d1.jpg" alt="">
+						</div>
+						<div class="details">
+							<h4>@value.Routess.RFrom To @value.Routess.RTo</h4>
+							
+							<ul class="package-list">
+								<li class="d-flex justify-content-between align-items-center">
+									<span>Duration</span>
+									<span>@value.Arraval</span>
+								</li>
+								<li class="d-flex justify-content-between align-items-center">
+									<span>Date</span>
+									<span>@value.Departual</span>
+								</li>
+								<li class="d-flex justify-content-between align-items-center">
+									<span>Flight</span>
+									<span>@value.Flight.FName</span>
+								</li>
+								<li class="d-flex justify-content-between align-items-center">
+									<span>Sepcial Set</span>
+									<a asp-route-id="@value.SheduleId" asp-action="show_special_sets" asp-controller="User" class="btn btn-danger">Book</a>
+								</li>
+								<li class="d-flex justify-content-between align-items-center">
+									<span>Price per person</span>
+									<h5>$@value.Price</h5>
+								</li>
+								<li class="d-flex justify-content-between align-items-center">
+									<a  class="price-btn ml-5">Book Now</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="single-destinations">
-					<div class="thumb">
-						<img src="img/packages/d3.jpg" alt="">
-					</div>
-					<div class="details">
-						<h4>Holiday Sea beach Blue Ocean</h4>
-						<p>
-							United staes of America
-						</p>
-						<ul class="package-list">
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Duration</span>
-								<span>06 days and 7 nights</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Date</span>
-								<span>18.04.2018</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Airport</span>
-								<span>Changi</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Extras</span>
-								<span>All Inclusive</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Price per person</span>
-								<a href="#" class="price-btn">$250</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="single-destinations">
-					<div class="thumb">
-						<img src="img/packages/d4.jpg" alt="">
-					</div>
-					<div class="details">
-						<h4>Holiday Sea beach Blue Ocean</h4>
-						<p>
-							United staes of America
-						</p>
-						<ul class="package-list">
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Duration</span>
-								<span>06 days and 7 nights</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Date</span>
-								<span>18.04.2018</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Airport</span>
-								<span>Changi</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Extras</span>
-								<span>All Inclusive</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Price per person</span>
-								<a href="#" class="price-btn">$250</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="single-destinations">
-					<div class="thumb">
-						<img src="img/packages/d5.jpg" alt="">
-					</div>
-					<div class="details">
-						<h4>Holiday Sea beach Blue Ocean</h4>
-						<p>
-							United staes of America
-						</p>
-						<ul class="package-list">
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Duration</span>
-								<span>06 days and 7 nights</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Date</span>
-								<span>18.04.2018</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Airport</span>
-								<span>Changi</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Extras</span>
-								<span>All Inclusive</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Price per person</span>
-								<a href="#" class="price-btn">$250</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="single-destinations">
-					<div class="thumb">
-						<img src="img/packages/d6.jpg" alt="">
-					</div>
-					<div class="details">
-						<h4>Holiday Sea beach Blue Ocean</h4>
-						<p>
-							United staes of America
-						</p>
-						<ul class="package-list">
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Duration</span>
-								<span>06 days and 7 nights</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Date</span>
-								<span>18.04.2018</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Airport</span>
-								<span>Changi</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Extras</span>
-								<span>All Inclusive</span>
-							</li>
-							<li class="d-flex justify-content-between align-items-center">
-								<span>Price per person</span>
-								<a href="#" class="price-btn">$250</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			}
+
+			
 		</div>
 	</div>
 </section>

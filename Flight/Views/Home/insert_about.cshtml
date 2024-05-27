@@ -1,0 +1,115 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Flight.Models.About;
+
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4 m-auto d-flex align-content-center justify-content-center">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Add Normal Sets Flights</h6>
+                <form asp-action="insert_aboutpro" method="post" enctype="multipart/form-data">
+                  
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">About Title</label>
+                        <input type="text" asp-for="AboutTitle" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">About Name</label>
+                        <input type="text" asp-for="AboutName" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">About Description</label>
+                        <textarea class="form-control" asp-for="AboutDescription" rows="2" cols="68" id="comment" placeholder="Additional parent Info" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">About Img</label>
+                        <input type="file" asp-for="AboutImg" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary m-auto">Submit</button>
+                </form>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<!-- Form End -->
+
+
+
+
+<div class="content">
+
+
+    <!-- Table Start -->
+    <div class="container-fluid pt-4 px-4 ml-5 mt-5">
+        <div class="row g-4">
+       
+      <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>About Name</th>
+                            <th>About Title</th>
+                            <th>About Description</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var value in ViewBag.about)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="~/@Url.Content(value.AboutImg)"
+                                             alt=""
+                                             style="width: 45px; height: 45px"
+                                             class="rounded-circle" />
+                                        <div class="ms-3">
+                                            <p class="fw-bold mb-1">@value.AboutTitle</p>
+
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">@value.AboutName</p>
+
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">@value.AboutDescription</p>
+                                </td>
+
+                                <td>
+                                    <a type="button" asp-action="about_edit" asp-route-id="@value.AboutId" asp-controller="Home" class="btn btn-link btn-sm btn-rounded">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    <a type="button" asp-action="about_delete" asp-route-id="@value.AboutId" asp-controller="Home" class="btn btn-danger btn-sm btn-rounded">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+    </div>
+    </div>
+</div>
+
+
+   

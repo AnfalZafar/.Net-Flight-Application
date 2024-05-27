@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Flight.Models.Choose;
+
+
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4 m-auto d-flex align-content-center justify-content-center">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Add Normal Sets Flights</h6>
+                <form asp-action="insert_choosepro" asp-controller="Home">
+                    
+
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Choose Name</label>
+                        <input type="text" asp-for="CName" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Choose Description</label>
+                        <textarea class="form-control" asp-for="CDescription" rows="2" cols="68" id="comment" placeholder="Additional parent Info" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary m-auto">Submit</button>
+                </form>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<!-- Form End -->
+
+
+<div class="content">
+
+
+    <!-- Table Start -->
+    <div class="container-fluid pt-4 px-4 ml-5 mt-5">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-12">
+                <div class="bg-secondary rounded w-100 h-100 p-4">
+                    <h6 class="mb-4">Table Without Border</h6>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Choose Name</th>
+                                <th scope="col">Choose Description</th>
+                                <th scope="col">Update</th>
+                                <th>Delete</th>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var value in ViewBag.choose)
+                            {
+                                <tr>
+
+                                    <td>@value.CName</td>
+                                    <td>@value.CDescription</td>
+                                    <th scope="col"><a class="btn btn-primary" asp-route-id="@value.CId" asp-action="choose_update" asp-controller="Home">Update</a></th>
+
+                                    <th scope="col"><a class="btn btn-danger" asp-route-id="@value.CId" asp-action="choose_delete" asp-controller="Home">Delete</a></th>
+
+
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

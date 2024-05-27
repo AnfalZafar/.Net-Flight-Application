@@ -11,7 +11,7 @@
     <div class="row g-4 m-auto d-flex align-content-center justify-content-center">
         <div class="col-sm-12 col-xl-6">
             <div class="bg-secondary rounded h-100 p-4">
-                <h6 class="mb-4">Add Admin</h6>
+                <h6 class="mb-4">Add Normal Sets Flights</h6>
                 <form asp-action="insert_shadulespro">
                     <div class="mb-3">
                         <select asp-for="FlightId" asp-items="ViewBag.Flight">
@@ -25,6 +25,8 @@
                         </select>
                     </div>
 
+                    <h1></h1>
+
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Departual</label>
                         <input type="datetime-local" asp-for="Departual" class="form-control" id="exampleInputEmail1"
@@ -33,6 +35,11 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Arraval</label>
                         <input type="datetime-local" asp-for="Arraval" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Price</label>
+                        <input type="text" asp-for="Price" class="form-control" id="exampleInputEmail1"
                                aria-describedby="emailHelp">
                     </div>
 
@@ -67,10 +74,11 @@
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Flight Id</th>
-                                <th scope="col">Route Id</th>
+                                <th scope="col">Flight Name</th>
+                                <th scope="col">Route Name</th>
                                 <th scope="col">Departual</th>
                                 <th scope="col">Arraval</th>
+                                <th scope="col">Price</th>
 
 
 
@@ -85,15 +93,16 @@
                             {
                                 <tr>
 
-                                    <td>@value.SId</td>
-                                    <td>@value.FlightId</td>
-                                    <td>@value.RoutessId</td>
+                                    <td>@value.SheduleId</td>
+                                    <td>@value.Flight.FName</td>
+                                    <td>@value.Routess.RFrom To @value.Routess.RTo</td>
                                     <td>@value.Departual</td>
                                     <td>@value.Arraval</td>
+                                    <td>@value.Price$</td>
 
 
 
-                                    <th scope="col"><a asp-route-id="@value.SId" asp-action="sehadules_delete" asp-controller="Home">Delete</a></th>
+                                    <th scope="col"><a asp-route-id="@value.SheduleId" asp-action="sehadules_delete" asp-controller="Home">Delete</a></th>
 
 
 

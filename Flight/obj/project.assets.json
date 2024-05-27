@@ -2012,11 +2012,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Noman Traders\\Desktop\\.Net_Flight_Website\\Flight\\Flight.csproj",
+      "projectUniqueName": "C:\\Users\\Noman Traders\\Desktop\\.Net-Flight-Application\\Flight\\Flight.csproj",
       "projectName": "Flight",
-      "projectPath": "C:\\Users\\Noman Traders\\Desktop\\.Net_Flight_Website\\Flight\\Flight.csproj",
+      "projectPath": "C:\\Users\\Noman Traders\\Desktop\\.Net-Flight-Application\\Flight\\Flight.csproj",
       "packagesPath": "C:\\Users\\Noman Traders\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Noman Traders\\Desktop\\.Net_Flight_Website\\Flight\\obj\\",
+      "outputPath": "C:\\Users\\Noman Traders\\Desktop\\.Net-Flight-Application\\Flight\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Noman Traders\\AppData\\Roaming\\NuGet\\NuGet.Config",

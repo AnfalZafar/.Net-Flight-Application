@@ -35,22 +35,22 @@ R_name varchar(255)
 
 )
 
-create table shedule(
+create table schedule(
 
-shedule_id int primary key identity(1,1),
-flight_id int,
-Routess_id int,
-Departual int ,
-Arraval int
+shedule_id  int primary key identity(1,1),
+flight_id  int ,
+Routess_id  int , 
+Departual DATETIME DEFAULT CURRENT_TIMESTAMP,
+Arraval DATETIME DEFAULT CURRENT_TIMESTAMP
 
-)
+);
 
-alter table shedule add foreign key(shedule_id) references flightss(f_id);
-alter table shedule add foreign key(shedule_id) references routess(R_id);
+alter table schedule add foreign key(flight_id) references flightss(f_id);
+alter table schedule add foreign key(Routess_id) references routess(R_id);
 
 create table class(
 
-class_id primary key identity(1,1),
+class_id int primary key identity(1,1),
 class_name varchar(255),
 class_price varchar(255)
 
@@ -58,10 +58,12 @@ class_price varchar(255)
 
 create table booking(
 
-booking_id primary key identity(1,1),
+booking_id int primary key identity(1,1),
 users_id varchar(255),
 shedule_id int,
 no_ofticket varchar(255),
 total_amount varhcar(255)
 
 )
+
+

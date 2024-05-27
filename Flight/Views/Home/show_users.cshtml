@@ -35,15 +35,10 @@
                             @foreach (var value in Model)
                             {
                                 <tr>
-                                    @if (@value.RoleId == 2)
-                                    {
-                                        <th scope="row">Admin</th>
-                                    }
-                                    else
-                                    {
-                                        <th scope="row">User</th>
+                                   
+                                        <th scope="row">@value.Role.RoleName</th>
 
-                                    }
+                                   
                                     <td>@value.UsersName</td>
                                         <td>@value.UsersEmail</td>
                                         <td>@value.UsersPassword</td>

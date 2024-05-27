@@ -91,8 +91,27 @@
                         </div>
                     </div>
                     
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Shadules</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a asp-action="insert_specail_shadules" asp-controller="Home" class="dropdown-item">Sepcial Sets</a>
+                            <a asp-action="insert_shadules" asp-controller="Home" class="dropdown-item">Normal Sets</a>
+
+
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>About Page</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a asp-action="insert_about" asp-controller="Home" class="dropdown-item">About</a>
+                            <a asp-action="insert_choose" asp-controller="Home" class="dropdown-item">Why Choose</a>
+
+
+
+                        </div>
+                    </div>
          
-                    <a asp-action="insert_shadules" asp-controller="Home" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Shadules</a>
                     <a asp-action="insert_class" asp-controller="Home" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Classes</a>
                     <a asp-action="Login" asp-controller="Home" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Login</a>
                     <a asp-action="Sign_up" asp-controller="Home" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Sign Up</a>

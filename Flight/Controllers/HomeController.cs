@@ -16,6 +16,7 @@ namespace Flight.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly flightContext db;
+        
 
         public HomeController(flightContext a)
         {
@@ -40,7 +41,7 @@ namespace Flight.Controllers
         }
         public IActionResult Log(User a)
         {
-            var data = db.Users.FirstOrDefault( x => x.UsersName == a.UsersName && x.UsersPassword == a.UsersPassword );
+            var data = db.Users.FirstOrDefault( x => x.UsersEmail == a.UsersEmail && x.UsersPassword == a.UsersPassword );
             ClaimsIdentity identity = null;
             bool isAuthenticate = false;
             if(data != null)
@@ -50,7 +51,7 @@ namespace Flight.Controllers
                 {
                     identity = new ClaimsIdentity(new[] {
 
-                    new Claim(ClaimTypes.Name , a.UsersName),
+                    new Claim(ClaimTypes.Email , a.UsersEmail),
                     new Claim(ClaimTypes.Role , "Admin")
 
                     }, CookieAuthenticationDefaults .AuthenticationScheme ) ;
@@ -61,7 +62,7 @@ namespace Flight.Controllers
                 {
                     identity = new ClaimsIdentity(new[]
                     {
-                        new Claim(ClaimTypes.Name , a.UsersName),
+                        new Claim(ClaimTypes.Email , a.UsersEmail),
                         new Claim(ClaimTypes.Role , "User")
                     }, CookieAuthenticationDefaults.AuthenticationScheme
                     );
@@ -81,7 +82,7 @@ namespace Flight.Controllers
 					}
                     else if(data.RoleId == 1)
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "User");
                     }
 
 
@@ -91,16 +92,14 @@ namespace Flight.Controllers
 
             }
 
-            ViewBag.dataa = "Invalid Credentials";
+            ViewBag.dataa = "Invalid Name or Password";
             return View("Login");
         }
-        [Authorize(Roles = "Admin,User")]
-
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
-        [Authorize(Roles = "Admin,User")]
         public IActionResult insert_role()
         {
             return View();
@@ -139,7 +138,7 @@ namespace Flight.Controllers
         public IActionResult show_users(User a)
         {
 
-            var data = db.Users.ToList();
+            var data = db.Users.Include(z => z.Role).ToList();
             ViewBag.opra = new SelectList(db.Roles, "RoleId", "RoleName");
             return View(data);
         }
@@ -148,7 +147,7 @@ namespace Flight.Controllers
             var data = db.Users.FirstOrDefault(x => x.UsersId == id);
             db.Remove(data);
             db.SaveChanges();
-            return RedirectToAction(nameof(view)); 
+            return RedirectToAction(nameof(show_users)); 
         }
 
         public IActionResult insert_flight()
@@ -210,8 +209,8 @@ namespace Flight.Controllers
         }
         public IActionResult insert_shadules()
         {
-            ViewBag.Flight = new SelectList(db.Flightsses, "FId", "FName");
-            ViewBag.Route = new SelectList(db.Routesses, "RId", "RName");
+            ViewBag.Flight = new SelectList(db.Flightsses, "FId", "FName" );
+            ViewBag.Route = new SelectList(db.Routesses, "RId", "RFrom" , "RTo");
             ViewBag.sho = db.Schedules.ToList();
             return View();
         }
@@ -221,8 +220,32 @@ namespace Flight.Controllers
             db.SaveChanges();
             return RedirectToAction(nameof(insert_shadules));
         }
+        public IActionResult sehadules_delete(int? id)
+        {
 
-        public IActionResult insert_class()
+            var delete = db.Schedules.FirstOrDefault(z => z.SheduleId == id);
+            db.Remove(delete);
+            db.SaveChanges();
+            return RedirectToAction(nameof(insert_shadules));
+        }
+
+
+        public IActionResult insert_specail_shadules()
+		{
+			ViewBag.Flight = new SelectList(db.Flightsses, "FId", "FName");
+			ViewBag.Route = new SelectList(db.Routesses, "RId", "RFrom", "RTo");
+			ViewBag.sho = db.SpecialSets.ToList();
+			return View();
+		}
+		public IActionResult insert_special_shadulespro(SpecialSet e)
+		{
+			db.Add(e);
+			db.SaveChanges();
+			return RedirectToAction(nameof(insert_specail_shadules));
+		}
+
+
+		public IActionResult insert_class()
         {
             ViewBag.clas = db.Classes.ToList();
             return View();
@@ -256,6 +279,70 @@ namespace Flight.Controllers
             db.Update(a);
             db.SaveChanges();
             return RedirectToAction(nameof(insert_class));
+
+        }
+
+        public IActionResult insert_flight_detail()
+        {
+            ViewBag.scheual = new SelectList(db.Schedules,"");
+            return View();
+        }
+
+        public IActionResult insert_about()
+        {
+            ViewBag.about = db.Abouts.ToList();
+            return View();
+        }
+
+        public IActionResult insert_aboutpro(About e , IFormFile AboutImg)
+        {
+            if(AboutImg != null) {
+
+                var filename = Path.GetFileName(AboutImg.FileName);
+                var filepath = Path.Combine("wwwroot/img/about" , filename);
+                var dbpath = Path.Combine("img", filename);
+
+                using(var strom = new FileStream(filepath , FileMode.Create))
+                {
+                    AboutImg.CopyTo(strom);
+                }
+                e.AboutImg = dbpath;
+                db.Abouts.Add(e);
+            db.SaveChanges();
+            return RedirectToAction(nameof(insert_about));
+            }
+            return RedirectToAction(nameof(insert_about));
+
+        }
+
+        public IActionResult about_delete(int? id)
+        {
+            var delete = db.Abouts.FirstOrDefault(z => z.AboutId == id);
+            db.Remove(delete);
+            db.SaveChanges();
+            return RedirectToAction(nameof(insert_about));
+
+        }
+
+        public IActionResult insert_choose()
+        {
+            ViewBag.choose = db.Chooses.ToList();
+            return View();
+        }
+
+        public IActionResult insert_choosepro(Choose e)
+        {
+            db.Add(e);
+            db.SaveChanges();
+            return RedirectToAction(nameof(insert_choose));
+        }
+
+        public IActionResult choose_delete(int? id)
+        {
+            var delete = db.Chooses.FirstOrDefault(z => z.CId == id);
+            db.Remove(delete);
+            db.SaveChanges();
+            return RedirectToAction(nameof(insert_choose));
 
         }
 

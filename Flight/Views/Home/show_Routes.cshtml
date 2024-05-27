@@ -21,8 +21,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Name</th>
-                            
+                                <th scope="col">From</th>
+                                <th scope="col">To</th>
+
 
                                 <th>Delete</th>
 
@@ -37,7 +38,8 @@
                                 <tr>
                                  
                                     <td>@value.RId</td>
-                                    <td>@value.RName</td>
+                                    <td>@value.RFrom</td>
+                                    <td>@value.RTo</td>
 
                                     <th scope="col"><a asp-route-id="@value.RId" asp-action="routes_delete" asp-controller="Home">Delete</a></th>
 

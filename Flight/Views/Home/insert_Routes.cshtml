@@ -14,7 +14,14 @@
                 <form asp-action="insert_routepro">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input type="text" asp-for="RName" class="form-control" id="exampleInputEmail1"
+                        <input type="text" asp-for="RFrom" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+
+                    </div>
+                    <div class="w-100 d-flex justify-content-center"><h6>To</h6></div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="text" asp-for="RTo" class="form-control" id="exampleInputEmail1"
                                aria-describedby="emailHelp">
 
                     </div>

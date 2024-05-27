@@ -2,6 +2,8 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    Layout = "layout3";
+
 }
 @model Flight.Models.User
 
@@ -10,27 +12,27 @@
         <div class="col-sm-12 col-xl-6">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Sign Up</h6>
-                <form asp-action="signup_pro" >
+                <form asp-action="signup_pro" asp-controller="User">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input type="text" asp-for="UsersName" class="form-control" id="exampleInputEmail1"
+                        <input type="text" asp-for="UsersName" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Name"
                                aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" asp-for="UsersEmail" class="form-control" id="exampleInputEmail1"
+                        <input type="email" asp-for="UsersEmail" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email"
                                aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Password</label>
-                        <input type="text" asp-for="UsersPassword" class="form-control" id="exampleInputEmail1"
+                        <input type="text" asp-for="UsersPassword" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Password"
                                aria-describedby="emailHelp">
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary m-auto">Submit</button>
+                    <button type="submit" class="btn btn-primary m-auto">Sign Up</button>
                 </form>
             </div>
 

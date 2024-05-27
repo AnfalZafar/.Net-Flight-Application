@@ -1,0 +1,213 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	Layout = "user_layout";
+
+}
+
+
+	<!-- start banner Area -->
+			<section class="relative about-banner">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								About Us		
+							</h1>	
+							<p class="text-white link-nav"><a asp-action="Index" asp-controller="User">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="contact.html"> Contact Us</a></p>
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+			
+			<!-- Start about-info Area -->
+			<section class="about-info-area section-gap">
+				<div class="container">
+		@foreach (var value in ViewBag.about){
+					<div class="row align-items-center">
+						<div class="col-lg-6 info-left">
+					<img class="img-fluid" src="~/@Url.Content(value.AboutImg)" alt="">
+						</div>
+						<div class="col-lg-6 info-right">
+					<h6>@value.AboutTitle</h6>
+					<h1>@value.AboutName</h1>
+							<p>
+						@value.AboutDescription
+							</p>
+						</div>
+					</div>
+
+		}
+				</div>	
+			</section>
+			<!-- End about-info Area -->
+
+				<!-- Start other-issue Area -->
+		
+
+			<section class="price-area section-gap">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Wy Choose</h1>
+								<p>Well educated, intellectual people, especially scientists at all times demonstrate considerably.</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+			@foreach (var value in ViewBag.choose){
+						<div class="col-lg-4">
+							<div class="single-price">
+						<h4>@value.CName</h4>
+								<ul class="price-list">
+									<li class="d-flex justify-content-between align-items-center">
+										<p>
+											@value.CDescription
+											</p>
+									</li>
+
+								</ul>
+							</div>
+
+
+						</div>
+
+			}
+
+					</div>
+				</div>
+			</section>
+
+			<!-- Start testimonial Area -->
+			<section class="testimonial-area section-gap">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Testimonial from our Clients</h1>
+								<p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="active-testimonial">
+							<div class="single-testimonial item d-flex flex-row">
+								<div class="thumb">
+									<img class="img-fluid" src="img/elements/user1.png" alt="">
+								</div>
+								<div class="desc">
+									<p>
+										Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+									</p>
+									<h4>Harriet Maxwell</h4>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>				
+									</div>	
+								</div>
+							</div>
+							<div class="single-testimonial item d-flex flex-row">
+								<div class="thumb">
+									<img class="img-fluid" src="img/elements/user2.png" alt="">
+								</div>
+								<div class="desc">
+									<p>
+										A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
+									</p>
+									<h4>Carolyn Craig</h4>
+									   <div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>			
+									</div>	
+								</div>
+							</div>
+							<div class="single-testimonial item d-flex flex-row">
+								<div class="thumb">
+									<img class="img-fluid" src="img/elements/user1.png" alt="">
+								</div>
+								<div class="desc">
+									<p>
+										Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+									</p>
+									<h4>Harriet Maxwell</h4>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>				
+									</div>	
+								</div>
+							</div>
+							<div class="single-testimonial item d-flex flex-row">
+								<div class="thumb">
+									<img class="img-fluid" src="img/elements/user2.png" alt="">
+								</div>
+								<div class="desc">
+									<p>
+										A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
+									</p>
+									<h4>Carolyn Craig</h4>
+									   <div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>			
+									</div>	
+								</div>
+							</div>
+							<div class="single-testimonial item d-flex flex-row">
+								<div class="thumb">
+									<img class="img-fluid" src="img/elements/user1.png" alt="">
+								</div>
+								<div class="desc">
+									<p>
+										Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+									</p>
+									<h4>Harriet Maxwell</h4>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>				
+									</div>	
+								</div>
+							</div>
+							<div class="single-testimonial item d-flex flex-row">
+								<div class="thumb">
+									<img class="img-fluid" src="img/elements/user2.png" alt="">
+								</div>
+								<div class="desc">
+									<p>
+										A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
+									</p>
+									<h4>Carolyn Craig</h4>
+									   <div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>			
+									</div>	
+								</div>
+							</div>		                    		                    
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End testimonial Area -->
+
+			
+			

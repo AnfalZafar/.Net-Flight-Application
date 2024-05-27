@@ -9,119 +9,155 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Flight
 build_property.RootNamespace = Flight
-build_property.ProjectDir = C:\Users\Noman Traders\Desktop\.Net_Flight_Website\Flight\
+build_property.ProjectDir = C:\Users\Noman Traders\Desktop\.Net-Flight-Application\Flight\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Noman Traders\Desktop\.Net_Flight_Website\Flight
+build_property.MSBuildProjectDirectory = C:\Users\Noman Traders\Desktop\.Net-Flight-Application\Flight
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/class_update.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/class_update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjbGFzc191cGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/flight_update.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/flight_update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxmbGlnaHRfdXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/Index.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/insert_class.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfYWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_choose.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfY2hvb3NlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_class.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfY2xhc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/insert_flight.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_flight.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfZmxpZ2h0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/insert_role.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_flight_detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfZmxpZ2h0X2RldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_role.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfcm9sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/insert_Routes.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_Routes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfUm91dGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/insert_shadules.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_shadules.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfc2hhZHVsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/insert_users.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_specail_shadules.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfc3BlY2FpbF9zaGFkdWxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/insert_users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNlcnRfdXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/Login.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/Privacy.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/role_edit.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/role_edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyb2xlX2VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/show_flight.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/show_flight.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzaG93X2ZsaWdodC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/show_Routes.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/show_Routes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzaG93X1JvdXRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/show_users.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/show_users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzaG93X3VzZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/Sign_up.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/Sign_up.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaWduX3VwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Home/view.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Home/view.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVx2aWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Shared/Error.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Shared/user_layout.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Shared/layout3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXGxheW91dDMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Shared/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Shared/user_layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXHVzZXJfbGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/User/contacts.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/User/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxhYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/User/contacts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxjb250YWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/User/Index.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/User/full_special_sets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxmdWxsX3NwZWNpYWxfc2V0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/User/packages.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/User/packages.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxwYWNrYWdlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/User/rutes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxydXRlcy5jc2h0bWw=
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/User/show_resutl_flight.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxzaG93X3Jlc3V0bF9mbGlnaHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/_ViewImports.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/User/show_special_sets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxzaG93X3NwZWNpYWxfc2V0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/_ViewStart.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noman Traders/Desktop/.Net_Flight_Website/Flight/Views/Shared/_Layout.cshtml]
+[C:/Users/Noman Traders/Desktop/.Net-Flight-Application/Flight/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bwk7xe6l2v
