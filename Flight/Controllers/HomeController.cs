@@ -23,20 +23,38 @@ namespace Flight.Controllers
             this.db = a;
         }
 
-        public IActionResult Sign_up()
+        public IActionResult Sign_up(string error , string errors)
         {
+            ViewBag.error = error;
+            ViewBag.errors = errors;
+
             return View();
         }
 
         public IActionResult signup_pro(User b)
         {
-            b.RoleId = 2;
+            var value = db.Users.FirstOrDefault(z => z.UsersEmail == b.UsersEmail);
+            if(value == null) { 
+            if(b.UsersEmail != null && b.UsersName != null) { 
+            b.RoleId = 1;
             db.Add(b);
             db.SaveChanges();
             return RedirectToAction(nameof(Login));
+                }
+                else
+                {
+                    return RedirectToAction("Sign_up", new { errors = "Your Input Feild is Null" });
+
+                }
+            }
+            else
+            {
+                return RedirectToAction("Sign_up", new { error = "Email is already taken" });
+            }
         }
-        public IActionResult Login()
+        public IActionResult Login(string id_error)
         {
+            ViewBag.not_loging = id_error;
             return View();
         }
         public IActionResult Log(User a)
@@ -56,6 +74,10 @@ namespace Flight.Controllers
 
                     }, CookieAuthenticationDefaults .AuthenticationScheme ) ;
                     isAuthenticate = true;
+                    Session_Model.UserId = data.UsersId.ToString();
+                    Session_Model.UserFullName = data.UsersName.ToString();
+                    Session_Model.UserEmail = data.UsersEmail.ToString();
+                    Session_Model.RoleId = data.RoleId.ToString();
                 };
 
                 if(data.RoleId == 1)
@@ -67,10 +89,14 @@ namespace Flight.Controllers
                     }, CookieAuthenticationDefaults.AuthenticationScheme
                     );
                     isAuthenticate = true;
+                    Session_Model.UserId = data.UsersId.ToString();
+                    Session_Model.UserFullName = data.UsersName.ToString();
+                    Session_Model.UserEmail = data.UsersEmail.ToString();
+					Session_Model.RoleId = data.RoleId.ToString();
 
-                }
+				}
 
-                if (isAuthenticate)
+				if (isAuthenticate)
                 {
                     var principal = new ClaimsPrincipal(identity);
                     var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);

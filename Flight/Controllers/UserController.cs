@@ -27,17 +27,59 @@ namespace Flight.Controllers
             return View();
         }
 
-        public IActionResult signup_pro(User b)
-		{
-			b.RoleId = 1;
-			db.Add(b);
-			db.SaveChanges();
-			return RedirectToAction("Login" , "Home");
-		}
-
 		public IActionResult packages()
 		{
             ViewBag.schedule = db.Schedules.Include(z => z.Flight).Include(x => x.Routess).ToList();
+			return View();
+		}
+
+		public IActionResult add_to_cart()
+		{
+			string from = Request.Form["from"].ToString();
+			string to = Request.Form["to"].ToString();
+			string price = Request.Form["price"].ToString();
+			string f_name = Request.Form["f_name"].ToString();
+			string user_id = Session_Model.UserId;
+			string qty = "1";
+			int user = Int32.Parse(Session_Model.UserId);
+			var user_detail = db.Users.FirstOrDefault(z => z.UsersId == user);
+			string user_name = user_detail.UsersName.ToString();
+            string user_email = user_detail.UsersEmail.ToString();
+
+
+            bool cheakitem = false;
+			for(var i = 0;i<add_list.List.Count; i++)
+			{
+				if (add_list.List[i].qty.ToString().Equals(qty))
+				{
+					add_list.List[i].qty = qty;
+					cheakitem = true;
+					break;
+				}
+			}
+			if(cheakitem == false)
+			{
+				Add_to_cart cart = new Add_to_cart()
+				{
+					from = from,
+					to = to,
+					flight_name = f_name,
+					qty = qty,
+					user_id = user_id,
+					user_name = user_name,
+					user_email = user_email,
+					price = price
+				};
+				add_list.List.Add(cart);
+			}
+
+
+			return RedirectToAction(nameof(view_cart));
+		}
+
+		public IActionResult view_cart()
+		{
+
 			return View();
 		}
 
@@ -49,9 +91,32 @@ namespace Flight.Controllers
 		
 		}
 		
-		public IActionResult contacts()
+		public IActionResult contacts(string email_error)
 		{
-			return View();
+			ViewBag.email_error = email_error;
+
+            return View();
+		}
+		public IActionResult user_contact(Contact b)
+		{
+			if (!string.IsNullOrEmpty(Session_Model.UserId)) {
+				var user_email = b.ContactEmail.ToString();
+				if(Session_Model.UserEmail == user_email) {
+					db.Contacts.Add(b);
+					db.SaveChanges();
+			return RedirectToAction(nameof(contacts));
+				}
+				else
+				{
+                    return RedirectToAction("contacts", "User", new { email_error = "Your Email is not match" });
+
+                }
+            }
+			else
+			{
+				return RedirectToAction("Login", "Home", new { id_error = "Login YOur Self" });
+			}
+			return Content("SomeThing Went Wrong");
 		}
 
 		public IActionResult show_resutl_flight(Routess b)

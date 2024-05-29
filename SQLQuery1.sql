@@ -7,8 +7,8 @@ role_id int primary key identity(1,1),
 role_name varchar(255) unique
 
 )
-
-
+select * from users;
+Delete from users Where users_id = 3012;
 create table users(
 
 users_id int primary key identity(1,1),
@@ -85,6 +85,17 @@ about_name varchar(255),
 about_description varchar(max),
 about_img varchar(max)
 );
+create table contact(
+
+contact_id int primary key identity(1,1),
+contact_name varchar(255),
+contact_subject varchar(255),
+contact_email varchar(max),
+contact_message varchar(max)
+);
+select * from contact;
+Delete from contact Where contact_id = 1;
+drop table contact;
 
 create table chooses(
 c_id int primary key identity(1,1),

@@ -18,8 +18,10 @@ namespace Flight.Data
         }
 
         public virtual DbSet<About> Abouts { get; set; } = null!;
+        public virtual DbSet<Booking> Bookings { get; set; } = null!;
         public virtual DbSet<Choose> Chooses { get; set; } = null!;
         public virtual DbSet<Class> Classes { get; set; } = null!;
+        public virtual DbSet<Contact> Contacts { get; set; } = null!;
         public virtual DbSet<Feedback> Feedbacks { get; set; } = null!;
         public virtual DbSet<FlightDetail> FlightDetails { get; set; } = null!;
         public virtual DbSet<Flightss> Flightsses { get; set; } = null!;
@@ -65,6 +67,32 @@ namespace Flight.Data
                     .HasColumnName("about_title");
             });
 
+            modelBuilder.Entity<Booking>(entity =>
+            {
+                entity.ToTable("booking");
+
+                entity.Property(e => e.BookingId).HasColumnName("booking_id");
+
+                entity.Property(e => e.NoOfticket)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("no_ofticket");
+
+                entity.Property(e => e.SheduleId).HasColumnName("shedule_id");
+
+                entity.Property(e => e.TotalAmount)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("total_amount");
+
+                entity.Property(e => e.UsersId).HasColumnName("users_id");
+
+                entity.HasOne(d => d.Shedule)
+                    .WithMany(p => p.Bookings)
+                    .HasForeignKey(d => d.SheduleId)
+                    .HasConstraintName("FK__booking__shedule__5BAD9CC8");
+            });
+
             modelBuilder.Entity<Choose>(entity =>
             {
                 entity.HasKey(e => e.CId)
@@ -99,6 +127,31 @@ namespace Flight.Data
                     .HasMaxLength(250)
                     .IsUnicode(false)
                     .HasColumnName("price");
+            });
+
+            modelBuilder.Entity<Contact>(entity =>
+            {
+                entity.ToTable("contact");
+
+                entity.Property(e => e.ContactId).HasColumnName("contact_id");
+
+                entity.Property(e => e.ContactEmail)
+                    .IsUnicode(false)
+                    .HasColumnName("contact_email");
+
+                entity.Property(e => e.ContactMessage)
+                    .IsUnicode(false)
+                    .HasColumnName("contact_message");
+
+                entity.Property(e => e.ContactName)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("contact_name");
+
+                entity.Property(e => e.ContactSubject)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("contact_subject");
             });
 
             modelBuilder.Entity<Feedback>(entity =>

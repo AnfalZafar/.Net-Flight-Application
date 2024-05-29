@@ -33,9 +33,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
+		<form class="row" method="post" asp-action="add_to_cart" asp-controller="User">
 			@foreach (var value in ViewBag.schedule)
 			{
+				<input type="hidden" name="from" value="@value.Routess.RFrom.ToString()" />
+				<input type="hidden" name="to" value="@value.Routess.RTo.ToString()" />
+				<input type="hidden" name="f_name" value="@value.Flight.FName.ToString()" />
+				<input type="hidden" name="price" value="@value.Price.ToString()" />
+
 				<div class="col-lg-4">
 					<div class="single-destinations">
 						<div class="thumb">
@@ -43,7 +48,6 @@
 						</div>
 						<div class="details">
 							<h4>@value.Routess.RFrom To @value.Routess.RTo</h4>
-							
 							<ul class="package-list">
 								<li class="d-flex justify-content-between align-items-center">
 									<span>Duration</span>
@@ -66,7 +70,7 @@
 									<h5>$@value.Price</h5>
 								</li>
 								<li class="d-flex justify-content-between align-items-center">
-									<a  class="price-btn ml-5">Book Now</a>
+									<button type="submit" class="price-btn border-none ml-5">Book Now</button>
 								</li>
 							</ul>
 						</div>
@@ -75,7 +79,7 @@
 			}
 
 			
-		</div>
+		</form>
 	</div>
 </section>
 <!-- End destinations Area -->

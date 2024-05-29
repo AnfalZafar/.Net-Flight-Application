@@ -14,6 +14,14 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         ox.AccessDeniedPath = ("/Home/Login");
     }
 );
+builder.Services.AddSession(option =>
+{
+    option.IdleTimeout = TimeSpan.FromSeconds(1800);
+    option.Cookie.HttpOnly = true;
+    option.Cookie.IsEssential = true;
+
+	}
+) ;
 
 var app = builder.Build();
 

@@ -7,6 +7,7 @@ namespace Flight.Models
     {
         public Schedule()
         {
+            Bookings = new HashSet<Booking>();
             FlightDetails = new HashSet<FlightDetail>();
         }
 
@@ -19,6 +20,7 @@ namespace Flight.Models
 
         public virtual Flightss? Flight { get; set; }
         public virtual Routess? Routess { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<FlightDetail> FlightDetails { get; set; }
     }
 }

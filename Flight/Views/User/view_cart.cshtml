@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "user_layout";
+}
+@model Flight.Models.Booking;
+
+<section class="about-banner relative">
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="about-content col-lg-12">
+				<h1 class="text-white">
+				 Booking
+				</h1>
+				<p class="text-white link-nav"><a asp-action="Index" asp-controller="User">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.html">Booking</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="cantainer mt-5 mb-5  d-flex justify-content-center">
+<form method="post" class="w-75"> 
+        @foreach(Add_to_cart value in add_list.List)
+        {
+            if(value.user_id == Session_Model.UserId){
+   
+        <!-- Gutter g-1 -->
+        <div class="row g-1 mb-3">
+        <div class="col">
+            <!-- Name input -->
+            <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="form9Example1">Name</label>
+                <input type="text" value="@value.user_name" id="form9Example1" class="form-control" />
+            </div>
+        </div>
+        <div class="col">
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="form9Example2">Email address</label>
+                            <input type="email" value="@value.user_email" id="form9Example2" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <!-- Gutter g-5 -->
+        <div class="row g-1 mb-3">
+            <div class="col">
+                <!-- Name input -->
+                <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="form9Example1">To</label>
+                    <input type="text" value="@value.to" id="form9Example1" class="form-control" />
+                </div>
+            </div>
+            <div class="col">
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="form9Example2">From</label>
+                            <input type="text" value="@value.from" id="form9Example2" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-1 mb-3">
+            <div class="col">
+                <!-- Name input -->
+                <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="form9Example1">Quantity</label>
+                            <input type="number" value="@value.qty" id="form9Example1" class="form-control outline-none" />
+                </div>
+            </div>
+            <div class="col">
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="form9Example2">Amount</label>
+                    <input type="text" value="@value.price" id="form9Example2" class="form-control" />
+                </div>
+            </div>
+                </div>
+
+            }
+            else
+            {
+                <script>
+                    alert("Login Your Self");
+                </script>
+            }
+        }
+
+</form>
+</div>
