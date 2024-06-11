@@ -10,6 +10,7 @@
 		public string user_id { get; set; }
 		public string user_name { get; set; }
 		public string user_email { get; set; }
+		public string s_id { get; set; }
 
 	}
 	public static class add_list

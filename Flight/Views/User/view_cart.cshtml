@@ -4,7 +4,8 @@
 @{
     Layout = "user_layout";
 }
-@model Flight.Models.Booking;
+@model Flight.Models.Add_to_cart;
+
 
 <section class="about-banner relative">
 	<div class="overlay overlay-bg"></div>
@@ -21,71 +22,101 @@
 </section>
 
 <div class="cantainer mt-5 mb-5  d-flex justify-content-center">
-<form method="post" class="w-75"> 
-        @foreach(Add_to_cart value in add_list.List)
-        {
-            if(value.user_id == Session_Model.UserId){
-   
-        <!-- Gutter g-1 -->
+<form method="post" class="w-75">
+
+
+        @if(Model != null){
+            var total = 0;
+
+       if(Session_Model.UserId == Model.user_id){
         <div class="row g-1 mb-3">
         <div class="col">
             <!-- Name input -->
             <div data-mdb-input-init class="form-outline">
                     <label class="form-label" for="form9Example1">Name</label>
-                <input type="text" value="@value.user_name" id="form9Example1" class="form-control" />
+                            <span class="form-control">@Model.user_name<span />
             </div>
         </div>
         <div class="col">
             <!-- Email input -->
             <div data-mdb-input-init class="form-outline">
                     <label class="form-label" for="form9Example2">Email address</label>
-                            <input type="email" value="@value.user_email" id="form9Example2" class="form-control" />
+                            <span value="@Model.user_email" id="form9Example2" class="form-control">@Model.user_email</span>
             </div>
         </div>
     </div>
-    <!-- Gutter g-5 -->
         <div class="row g-1 mb-3">
             <div class="col">
                 <!-- Name input -->
                 <div data-mdb-input-init class="form-outline">
                     <label class="form-label" for="form9Example1">To</label>
-                    <input type="text" value="@value.to" id="form9Example1" class="form-control" />
+                            <span id="form9Example1" class="form-control">@Model.to</span>
                 </div>
             </div>
             <div class="col">
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline">
                     <label class="form-label" for="form9Example2">From</label>
-                            <input type="text" value="@value.from" id="form9Example2" class="form-control" />
+                            <span id="form9Example2" class="form-control">@Model.from</span>
                 </div>
             </div>
         </div>
-
         <div class="row g-1 mb-3">
             <div class="col">
                 <!-- Name input -->
                 <div data-mdb-input-init class="form-outline">
                     <label class="form-label" for="form9Example1">Quantity</label>
-                            <input type="number" value="@value.qty" id="form9Example1" class="form-control outline-none" />
+                            <input type="number" id="qty_@Model.s_id.ToString()" value="@Model.qty.ToString()" class="form-control outline-none" />
                 </div>
             </div>
             <div class="col">
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline">
                     <label class="form-label" for="form9Example2">Amount</label>
-                    <input type="text" value="@value.price" id="form9Example2" class="form-control" />
-                </div>
-            </div>
-                </div>
+                            <input type="hidden" id="id_@Model.s_id.ToString()" value="@Model.s_id.ToString()" class="form-control" />
 
-            }
-            else
-            {
+                            <span id="price_@Model.s_id.ToString()" class="form-control">@Model.price.ToString()</span>
+                </div>
+            </div>                   
+                </div>
+        <div class="row g-1 mb-3">
+                    <div class="col">
+                        <!-- Email input -->
+                        <div data-mdb-input-init class="form-outline">
+                            <button type="submit" id="btn_@Model.s_id.ToString()">Submit</button>
+                        </div>
+                    </div>
+        </div>
+
                 <script>
-                    alert("Login Your Self");
+                    $('#qty_@Model.s_id.ToString()').bind('keyup mouseup', function () {
+                        var qty = $('#qty_@Model.s_id.ToString()').val();
+                        var price = $('#price_@Model.s_id.ToString()').text();
+                        var id = $('@Model.s_id.ToString()').val();
+                        var total = Number(price) * Number(qty);
+
+                        $("#price_@Model.s_id.ToString()").text(total);
+
+                        var values = { "qty": qty, "price": price, "id": id };
+
+                        $.ajax({
+                            type: "Post",
+                            url: '@Url.Action("updatacart", "User")',
+                            data: values,
+                            success: function (data) { 
+
+                        },
+                            error: function () {
+                                alert("Data Not Update");
+                            }
+
+                                            });
+
+                                        });
+
+
                 </script>
             }
         }
-
 </form>
 </div>

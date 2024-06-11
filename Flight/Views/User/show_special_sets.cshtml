@@ -40,7 +40,7 @@
 							<img src="~/img/packages/d1.jpg" alt="">
 						</div>
 						<div class="details">
-							<h4>@value.Routess.RFrom To @value.Routess.RTo</h4>
+							<h4>@value.Routess.RTo To @value.Routess.RFrom</h4>
 
 							<ul class="package-list">
 								<li class="d-flex justify-content-between align-items-center">
@@ -61,7 +61,15 @@
 									<h5>$@value.SPrice</h5>
 								</li>
 								<li class="d-flex justify-content-between align-items-center">
-									<a href="#" class="price-btn">Book Now</a>
+									<form class="row" method="post" asp-action="add_to_cart" asp-controller="User">
+
+										<input type="hidden" name="from" value="@value.Routess.RFrom" />
+										<input type="hidden" name="to" value="@value.Routess.RTo" />
+										<input type="hidden" name="f_name" value="@value.Flight.FName" />
+										<input type="hidden" name="price" value="@value.SPrice" />
+										<input type="hidden" name="s_id" value="@value.SpecialId"/>
+										<button type="submit" class="price-btn border-none ml-5">Book Now</button>
+									</form>
 								</li>
 							</ul>
 						</div>

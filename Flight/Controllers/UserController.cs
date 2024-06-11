@@ -3,6 +3,9 @@ using Flight.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using System.Globalization;
 
 namespace Flight.Controllers
 
@@ -32,57 +35,88 @@ namespace Flight.Controllers
             ViewBag.schedule = db.Schedules.Include(z => z.Flight).Include(x => x.Routess).ToList();
 			return View();
 		}
-
+		[HttpPost]
 		public IActionResult add_to_cart()
 		{
-			string from = Request.Form["from"].ToString();
-			string to = Request.Form["to"].ToString();
-			string price = Request.Form["price"].ToString();
-			string f_name = Request.Form["f_name"].ToString();
-			string user_id = Session_Model.UserId;
-			string qty = "1";
-			int user = Int32.Parse(Session_Model.UserId);
-			var user_detail = db.Users.FirstOrDefault(z => z.UsersId == user);
-			string user_name = user_detail.UsersName.ToString();
-            string user_email = user_detail.UsersEmail.ToString();
+			if (!string.IsNullOrEmpty(Session_Model.UserId))
+			{	
+					string from = Request.Form["from"].ToString();
+					string to = Request.Form["to"].ToString();
+					string price = Request.Form["price"].ToString();
+					string f_name = Request.Form["f_name"].ToString();
+					string s_id = Request.Form["s_id"].ToString();
+
+					string user_id = Session_Model.UserId;
+					string qty = "1";
+					int user = Int32.Parse(Session_Model.UserId);
+					var user_detail = db.Users.FirstOrDefault(z => z.UsersId == user);
+					string user_name = user_detail.UsersName.ToString();
+					string user_email = user_detail.UsersEmail.ToString();
 
 
-            bool cheakitem = false;
-			for(var i = 0;i<add_list.List.Count; i++)
-			{
-				if (add_list.List[i].qty.ToString().Equals(qty))
+					bool cheakitem = false;
+				   // this forlop runs according to the count of addlist
+				for(var i = 0; i < add_list.List.Count; i++)
 				{
-					add_list.List[i].qty = qty;
-					cheakitem = true;
-					break;
-				}
-			}
-			if(cheakitem == false)
-			{
-				Add_to_cart cart = new Add_to_cart()
-				{
-					from = from,
-					to = to,
-					flight_name = f_name,
-					qty = qty,
-					user_id = user_id,
-					user_name = user_name,
-					user_email = user_email,
-					price = price
-				};
-				add_list.List.Add(cart);
-			}
+					if (add_list.List[i].s_id.Equals(s_id))
+					{
+                        cheakitem = true;
 
+                        TempData["data"] = JsonConvert.SerializeObject(add_list.List[i]);
+                        return RedirectToAction(nameof(view_cart));
+                        break;
+                    }
+					
+				}			
 
+					if (cheakitem == false)
+					{
+                    Add_to_cart cart = new Add_to_cart()
+                    {
+                        from = from,
+                        to = to,
+                        flight_name = f_name,
+                        qty = qty,
+                        user_id = user_id,
+                        user_name = user_name,
+                        user_email = user_email,
+                        price = price,
+                        s_id = s_id
+                    };
+                    add_list.List.Add(cart);
+					//to convert into json
+					//TempData store data if another data is add than first data is Delete automaticaly
+					TempData["data"] = JsonConvert.SerializeObject(cart); 
+				     return RedirectToAction(nameof(view_cart));
+						
+					}
+					
+			}
 			return RedirectToAction(nameof(view_cart));
 		}
 
 		public IActionResult view_cart()
 		{
+            var data = TempData["data"] as string;
+            Add_to_cart cart = data != null ? JsonConvert.DeserializeObject<Add_to_cart>(data) : null;
+            return View(cart);
+        }
+		[HttpPost]
+		public IActionResult updatacart()
+		{
+			var id = Request.Form["id"];
+			var qty = Request.Form["qty"];
+			var price = Request.Form["price"];
 
-			return View();
+			var update = add_list.List.FirstOrDefault(s => s.s_id == id);
+			if(update != null)
+			{
+				update.qty = qty;
+			}
+
+			return Content("price==" + price + "qty==" + qty + "id==" + id);
+
 		}
-
 		public IActionResult about() {
 
 			ViewBag.choose = db.Chooses.ToList();
@@ -116,9 +150,34 @@ namespace Flight.Controllers
 			{
 				return RedirectToAction("Login", "Home", new { id_error = "Login YOur Self" });
 			}
-			return Content("SomeThing Went Wrong");
 		}
 
+		public IActionResult quote(string messages)
+		{
+			ViewBag.email_error = messages;
+			return View();
+		}
+
+		public IActionResult user_feedback(Feedback e)
+		{
+			if (!string.IsNullOrEmpty(Session_Model.UserId))
+			{
+				var email = e.FEmail;
+				if(Session_Model.UserEmail == email && Session_Model.UserFullName == e.FName) { 
+				db.Feedbacks.Add(e);
+				db.SaveChanges();
+				return RedirectToAction(nameof(quote));
+				}
+				else
+				{
+					return RedirectToAction("quote", new { messages = "Your Email OR Name is not correct" });
+				}
+			}
+			else
+			{
+				return RedirectToAction("Login", "Home");
+			}
+		}
 		public IActionResult show_resutl_flight(Routess b)
 		{
 			var data = db.Routesses.FirstOrDefault(s => s.RFrom == b.RFrom && s.RTo == b.RTo);

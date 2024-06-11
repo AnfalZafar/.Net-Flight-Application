@@ -39,6 +39,9 @@
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
 		  rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="~/css/jquery-ui1.css">
+	<!-- fonts -->
 	
 </head>
 <body>
@@ -68,7 +71,7 @@
 						<li><a asp-action="about" asp-controller="User">About</a></li>
 						<li><a asp-action="packages" asp-controller="User">Pakages</a></li>
 						<li><a asp-action="contacts" asp-controller="User">Contact</a></li>
-						<li><a href="contact.html">Quote Us</a></li>
+						<li><a asp-action="quote" asp-controller="User">Quote Us</a></li>
 						<li><a asp-action="view_cart" asp-controller="User">
 							<i class="fa-solid fa-plane-lock"></i>
 							<span>2</span>
