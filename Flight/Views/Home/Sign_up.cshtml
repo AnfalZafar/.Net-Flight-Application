@@ -19,41 +19,86 @@
         alert("@ViewBag.errors");
     </script>
 }
-<div class="container-fluid pt-4 px-4 m-auto ml-5">
-    <div class="row g-4 m-auto d-flex align-content-center justify-content-center">
-        <div class="col-sm-12 col-xl-6">
-            <div class="bg-secondary rounded h-100 p-4">
-                <h6 class="mb-4">Sign Up</h6>
-                <form asp-action="signup_pro" asp-controller="Home">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input type="text" asp-for="UsersName" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Name"
-                               aria-describedby="emailHelp">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" asp-for="UsersEmail" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email"
-                               aria-describedby="emailHelp">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Password</label>
-                        <input type="text" asp-for="UsersPassword" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Password"
-                               aria-describedby="emailHelp">
-                    </div>
 
 
-                    <button type="submit" class="btn btn-primary m-auto">Sign Up</button>
-                </form>
-            </div>
+<section class="ftco-section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6 text-center mb-5">
+				<h2 class="heading-section">Sign Up </h2>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-12">
+				<div class="wrap d-md-flex">
+					<div class="text-wrap p-4 p-lg-5 d-flex img" style="background-image: url(images/bg.jpg);">
+						<div class="text w-100">
+							<h2 class="mb-4">Welcome to signup form</h2>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						</div>
+					</div>
+					<div class="login-wrap p-4 p-md-5">
+						<div class="row justify-content-center py-md-5">
+							<div class="col-lg-9">
+								<div class="social-wrap">
+									<h3 class="mb-3 text-center">Signup with this services</h3>
+									<p class="social-media d-flex justify-content-center">
+										<a href="#" class="social-icon google d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a>
+										<a href="#" class="social-icon facebook d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+										<a href="#" class="social-icon twitter d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+									</p>
+									<p class="or">
+										<span>or</span>
+									</p>
+								</div>
+								<form asp-action="signup_pro" asp-controller="Home" class="signup-form">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="name">Full Name</label>
+												<input type="text" asp-for="UsersName" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="name">User Email</label>
+												<input type="text" asp-for="UsersEmail" class="form-control">
+											</div>
+										</div>
+									
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="password">Password</label>
+												<input type="password" asp-for="UsersPassword" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-12 my-4">
+											<div class="form-group">
+												<div class="w-100">
+													<label class="checkbox-wrap checkbox-primary">
+														I agree all statements in terms of service
+														<input type="checkbox" checked>
+														<span class="checkmark"></span>
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<button type="submit" class="btn btn-primary submit p-3">Create an account</button>
+											</div>
+										</div>
+									</div>
 
-
-
-
-
-
-
-        </div>
-    </div>
-</div>
+								</form>
+								<div class="w-100">
+									<p class="mt-4">I'm already a member! <a asp-action="Login" asp-controller="Home">Sign In</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -21,7 +21,7 @@
 	</div>
 </section>
 
-<div class="cantainer mt-5 mb-5  d-flex justify-content-center">
+<div class="cantainer mt-5 mb-5 p-5 d-flex justify-content-center">
 <form method="post" class="w-75">
 
 
@@ -29,7 +29,12 @@
             var total = 0;
 
        if(Session_Model.UserId == Model.user_id){
-        <div class="row g-1 mb-3">
+           <div class="row img" >
+               <div class="col col-sm-12 col-lg-6 d-flex justify-content-center">
+                        <img src="~/css2/formimg.jpg" style="width:95%;height:95%" />
+                    </div>
+               <div class="col col-sm-12 col-lg-6 ">
+        <div class="row g-1 mb-3 w-100">
         <div class="col">
             <!-- Name input -->
             <div data-mdb-input-init class="form-outline">
@@ -45,7 +50,7 @@
             </div>
         </div>
     </div>
-        <div class="row g-1 mb-3">
+        <div class="row g-1 mb-3 w-100">
             <div class="col">
                 <!-- Name input -->
                 <div data-mdb-input-init class="form-outline">
@@ -61,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <div class="row g-1 mb-3">
+        <div class="row g-1 mb-3 w-100">
             <div class="col">
                 <!-- Name input -->
                 <div data-mdb-input-init class="form-outline">
@@ -79,15 +84,17 @@
                 </div>
             </div>                   
                 </div>
-        <div class="row g-1 mb-3">
+        <div class="row g-1 mb-3 w-100">
                     <div class="col">
                         <!-- Email input -->
-                        <div data-mdb-input-init class="form-outline">
-                            <button type="submit" id="btn_@Model.s_id.ToString()">Submit</button>
+                        <div data-mdb-input-init class="form-outline mt-3 w-100 d-flex justify-content-center">
+                   <button type="submit" class="btn btn-warning border-none btn-outline-none" style="color:white;">Submit</button>
                         </div>
                     </div>
         </div>
+                    </div>
 
+                    </div>
                 <script>
                     $('#qty_@Model.s_id.ToString()').bind('keyup mouseup', function () {
                         var qty = $('#qty_@Model.s_id.ToString()').val();
