@@ -64,7 +64,7 @@ s_Arraval DATETIME DEFAULT CURRENT_TIMESTAMP,
 s_price varchar(255)
 
 );
-
+select * from special_sets;
 alter table special_sets add foreign key(flight_id) references flightss(f_id);
 alter table special_sets add foreign key(Routess_id) references routess(R_id);
 create table class(
@@ -94,7 +94,7 @@ contact_email varchar(max),
 contact_message varchar(max)
 );
 select * from contact;
-Delete from contact Where contact_id = 1;
+Delete from orders Where o_id = 1;
 drop table contact;
 
 create table chooses(
@@ -115,15 +115,6 @@ f_address varchar(255),
 f_feedback varchar(max)
 );
 
-create table booking(
-
-booking_id int primary key identity(1,1),
-users_id varchar(255),
-shedule_id int,
-no_ofticket varchar(255),
-total_amount varchar(255)
-
-)
 
 create table flight_detail(
 flight_id int primary key identity(1,1),
@@ -135,3 +126,21 @@ special_id int
 drop table flight_detail;
 alter table flight_detail add foreign key(shedule_id) references schedule(shedule_id);
 alter table flight_detail add foreign key(special_id) references special_sets(special_id);
+
+create table orders(
+
+o_id int primary key identity(1,1),
+users_name varchar(255),
+users_email varchar(255),
+users_id varchar(255),
+flight_sets varchar(255),
+flight_name varchar(255),
+flight_to varchar(255),
+flight_from varchar(255),
+total_price varchar(255),
+amount_of_flights varchar(255)
+
+);
+
+drop table orders;
+select * from orders;

@@ -62,7 +62,15 @@
 									<h5>$@value.SPrice</h5>
 								</li>
 								<li class="d-flex justify-content-between align-items-center">
-									<a href="#" class="price-btn">Book Now</a>
+									<form class="row" method="post" asp-action="add_to_cart" asp-controller="User">
+
+										<input type="hidden" name="from" value="@value.Routess.RFrom" />
+										<input type="hidden" name="to" value="@value.Routess.RTo" />
+										<input type="hidden" name="f_name" value="@value.Flight.FName" />
+										<input type="hidden" name="price" value="@value.SPrice" />
+										<input type="hidden" name="s_id" value="@value.Flight.SpecialSets" />
+										<button type="submit" class="price-btn border-none ml-5">Book Now</button>
+									</form>
 								</li>
 							</ul>
 						</div>

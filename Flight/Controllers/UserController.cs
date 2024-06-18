@@ -19,9 +19,10 @@ namespace Flight.Controllers
 		{
 			this.db = a;
 		}
-		public IActionResult Index(string message)
+		public IActionResult Index(string message , string order)
         {
 			ViewBag.message = message;
+			ViewBag.order = order;
             return View();
         }
 
@@ -215,7 +216,39 @@ namespace Flight.Controllers
 			var special = db.SpecialSets.Include(s => s.Routess).Include(f => f.Flight).ToList();
 			return View(special);
 		}
-        public ActionResult GetCategories()
+		[HttpPost]
+		public IActionResult order(orders e)
+		{
+			string name = Request.Form["name"];
+            string email = Request.Form["email"];
+            string f_name = Request.Form["f_name"];
+            string to = Request.Form["to"];
+            string from = Request.Form["from"];
+            string s_id = Request.Form["s_id"];
+            string price = Request.Form["price"];
+            string qty = Request.Form["qty"];
+			string user_id = Request.Form["user_id"];
+
+
+			orders order = new orders()
+			{
+				users_name = name,
+				users_email = email,
+				users_id = user_id,
+				flight_to = to,
+				flight_from = from,
+				flight_sets = s_id,
+				flight_name = f_name,
+				total_price = price,
+				amount_of_flights = qty
+			};
+
+            db.orders.Add(order);
+			db.SaveChanges();
+			return RedirectToAction("Index", new { order = "Your Orders is SuccessFully Submit" });
+		}
+
+		public ActionResult GetCategories()
         {
             var Categories = db.Routesses.ToList();
             return PartialView("user_layout", Categories);

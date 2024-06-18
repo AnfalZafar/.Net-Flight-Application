@@ -22,13 +22,24 @@
 </section>
 
 <div class="cantainer mt-5 mb-5 p-5 d-flex justify-content-center">
-<form method="post" class="w-75">
+    <form asp-action="order" asp-controller="User" method="post" class="w-75">
 
 
         @if(Model != null){
-            var total = 0;
 
        if(Session_Model.UserId == Model.user_id){
+                <input type="hidden" name="name" value="@Model.user_name" />
+                <input type="hidden" name="email" value="@Model.user_email" />
+                <input type="hidden" name="f_name" value="@Model.flight_name" />
+                <input type="hidden" name="to" value="@Model.to" />
+                <input type="hidden" name="from" value="@Model.from" />
+                <input type="hidden" name="s_id" value="@Model.s_id" />
+                <input type="hidden" name="price" value="@Model.price" />
+                <input type="hidden" name="qty" value="@Model.qty" />
+                <input type="hidden" name="user_id" value="@Model.user_id" />
+
+
+
            <div class="row img" >
                <div class="col col-sm-12 col-lg-6 d-flex justify-content-center">
                         <img src="~/css2/formimg.jpg" style="width:95%;height:95%" />
@@ -71,7 +82,7 @@
                 <!-- Name input -->
                 <div data-mdb-input-init class="form-outline">
                     <label class="form-label" for="form9Example1">Quantity</label>
-                            <input type="number" id="qty_@Model.s_id.ToString()" value="@Model.qty.ToString()" class="form-control outline-none" />
+                                    <input type="number" id="qty_@Model.s_id.ToString()" value="@Model.qty.ToString()" class="form-control outline-none" />
                 </div>
             </div>
             <div class="col">
@@ -80,7 +91,7 @@
                     <label class="form-label" for="form9Example2">Amount</label>
                             <input type="hidden" id="id_@Model.s_id.ToString()" value="@Model.s_id.ToString()" class="form-control" />
 
-                            <span id="price_@Model.s_id.ToString()" class="form-control">@Model.price.ToString()</span>
+                                    <span id="price_@Model.s_id.ToString()" asp-for="total_price" asp-controller="User" class="form-control">@Model.price.ToString()</span>
                 </div>
             </div>                   
                 </div>

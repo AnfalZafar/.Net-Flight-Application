@@ -30,8 +30,10 @@ namespace Flight.Data
         public virtual DbSet<Schedule> Schedules { get; set; } = null!;
         public virtual DbSet<SpecialSet> SpecialSets { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
+		public virtual DbSet<orders> orders { get; set; } = null!;
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -271,7 +273,52 @@ namespace Flight.Data
                     .HasColumnName("R_to");
             });
 
-            modelBuilder.Entity<Schedule>(entity =>
+			modelBuilder.Entity<orders>(entity =>
+			{
+				entity.HasKey(e => e.o_id)
+					.HasName("PK__feedback__2911CBEDC128958F");
+
+				entity.Property(e => e.users_name)
+					.HasMaxLength(255)
+					.IsUnicode(false)
+					.HasColumnName("users_name");
+
+				entity.Property(e => e.users_email)
+					.HasMaxLength(255)
+					.IsUnicode(false)
+					.HasColumnName("users_email");
+
+				entity.Property(e => e.flight_sets)
+					.IsUnicode(false)
+					.HasColumnName("flight_sets");
+
+				entity.Property(e => e.flight_name)
+					.HasMaxLength(255)
+					.IsUnicode(false)
+					.HasColumnName("flight_name");
+
+				entity.Property(e => e.flight_to)
+					.HasMaxLength(255)
+					.IsUnicode(false)
+					.HasColumnName("flight_to");
+
+				entity.Property(e => e.flight_from)
+					.HasMaxLength(255)
+					.IsUnicode(false)
+					.HasColumnName("flight_from");
+
+				entity.Property(e => e.total_price)
+					.HasMaxLength(255)
+					.IsUnicode(false)
+					.HasColumnName("total_price");
+
+				entity.Property(e => e.amount_of_flights)
+					.HasMaxLength(255)
+					.IsUnicode(false)
+					.HasColumnName("amount_of_flights");
+			});
+
+			modelBuilder.Entity<Schedule>(entity =>
             {
                 entity.HasKey(e => e.SheduleId)
                     .HasName("PK__schedule__4EEE243DA0449678");
